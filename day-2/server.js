@@ -1,13 +1,14 @@
+// Importing express package by "require("express")"
 const express = require("express");
 
-const app = express() // Creating a server instance.
+// Creating instance of Server by calling "express()"
+const app = express();
 
-app.get('/home', (req, res) => {res.send("This is Home Page")})
-app.get('/about', (req, res) => {res.send("This is About Page")})
-app.get('/contact', (req, res) => {res.send("This is Contact Page")})
+// Creating a sample route using GET Method at root path "/"
+app.get('/', (req, res) => {
+    // when user visits '/' server will send response back
+    res.send("Hello World!")
+});
 
-
-app.listen(3000, () => {
-    console.log("Server started on port 3000")
-}) // .listen(3000) is used to start server.
-
+// Server starts here & then Server will listening at 3000 port once we execute CMD: npx nodemon server.js
+app.listen(3000);
