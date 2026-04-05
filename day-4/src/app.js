@@ -1,49 +1,30 @@
+// Importing Express package into Node.js Project
 const express = require("express");
 
+// Creating a Server Instance
 const app = express();
 
+// MiddleWare
 app.use(express.json())
 
+// Creating a Notes that user can Create, Read, Update, Delete
 const notes = []
 
-// Post Method to Create a New Post
+// Creating a POST method
 app.post('/notes', (req, res) => {
     notes.push(req.body);
-    res.send("Note Successfully Created...!!!")
+    res.send("New Notes Successfully Created.")
 })
 
-// Get Method to Get data from server
+// Creating a GET method
 app.get('/notes', (req, res) => {
     res.send(notes)
 })
 
-// Patch Method to update existing Note
-app.patch('/notes/:index', (req, res) => { 
-    notes [ req.params.index ].description = req.body.description;
-    res.send("Note Updated Successfully...!") 
-}) 
-
-// Delete Method to Delete a Note
-app.delete('/notes/:index', (req, res) => {
-    delete notes [ req.params.index ]
-    res.send("Note Deleted Successfully...!")
+// Creating a Patch Method
+app.patch('/notes/:idx', (req, res) => {
+    notes[req.params.idx].description = req.body.description;
+    res.send(`Note ${idx} Successfully Modified`)
 })
 
-
-
-
-
-
-
-
-
-
-
-
-/* 
-{ 
-    "title": "test title no.1",
-    "description": "test description no.1"
-}
-*/
 module.exports = app;
