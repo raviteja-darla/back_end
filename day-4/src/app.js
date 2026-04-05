@@ -22,9 +22,15 @@ app.get('/notes', (req, res) => {
 })
 
 // Creating a Patch Method
-app.patch('/notes/:idx', (req, res) => {
-    notes[req.params.idx].description = req.body.description;
-    res.send(`Note ${idx} Successfully Modified`)
+app.patch('/notes/:index', (req, res) => {
+    notes[req.params.index].description = req.body.description;
+    res.send("Note Successfully Modified");
+})
+
+// Creating a DELETE method
+app.delete('/notes/:index', (req, res) => {
+    delete notes[req.params.index]
+    res.send("Note Deleted Successfully.")
 })
 
 module.exports = app;
