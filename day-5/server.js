@@ -1,5 +1,7 @@
-const app = require("./src/app");
+// Importing Server from app.js
+const app = require('./src/app');
 
-app.listen(3000, ()=> {
-    console.log("Server Running Port 3000");
+// Server runing port on 3000
+app.listen(3000, () => {
+    console.log("Server running on Port 3000.!!!");
 })

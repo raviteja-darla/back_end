@@ -1,71 +1,44 @@
+// Importing Express server
 const express = require("express");
 
-const app = express();
+// Creating a instance of Server
+const app = express()
 
+// MiddleWare to read user request body
 app.use(express.json())
 
-const notes = [];
+// Creating Notes
+const notes = []
 
-// Post 
+// Creating POST api method to create new resources by client
 app.post('/notes', (req, res) => {
-    const newNote = req.body;
-    notes.push(newNote)
-
+    notes.push(req.body);
     res.status(201).json({
-        message: "Note Created Successfully...!",
-        data: newNote
+        message: "New Resources Created Successfully"
     })
-});
+})
 
-// Get Method
+// Creating GET API Method to fetch data by client
 app.get('/notes', (req, res) => {
     res.status(200).json({
-        message: "Note Fetched Successfully",
-        data: notes
-    });
-})
-
-// Delete Method
-app.delete('/notes/:index', (req, res) => {
-    delete notes [ req.params.index ]
-
-    res.status(204).json({
-        message: "Note Deteled Successfully...!"
+        message: "Data Fetched Successfully",
+        notes: notes
     })
 })
 
-// Patch Notes
-app.patch('/notes/:index', (req, res) => {
-    notes [ req.params.index ].description = req.body.description;
-
+// Creating PATCH API Method to Update any resources partically by client.
+app.patch('/notes/:idx', (req, res) => {
+    notes [req.params.idx].description = req.body.description;
     res.status(200).json({
-        message: "Note Updated Successfull...!"
+        message: "Resources Updated Successfully"
     })
 })
 
-
-// darlaraviteja04_db_user
-// hXu4aqhoXkPno4mS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Creating DELETE API Method to delete any resources by client. 
+app.delete('/notes/:idx', (req, res) => {
+    delete notes [req.params.idx];
+    res.status(204).json({
+        message: "Resources Deleted Successfully"`
+    })
+})
 module.exports = app;
