@@ -36,9 +36,9 @@ app.patch('/notes/:idx', (req, res) => {
 
 // Creating DELETE API Method to delete any resources by client. 
 app.delete('/notes/:idx', (req, res) => {
-    delete notes [req.params.idx];
+    delete notes [req.params.idx]
     res.status(204).json({
-        message: "Resources Deleted Successfully"`
+        message: "Resources Deleted Successfully"
     })
 })
 module.exports = app;
