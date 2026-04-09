@@ -1,0 +1,45 @@
+h1 {
+    text-align: center;
+    margin: 15px;
+}
+.notes-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.note {
+    width: 250px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.note .title{
+    font-weight: 700;
+}
+.note .descrip {
+    font-size: 14px;
+}
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.btn-container button {
+    width: 49%;
+    background-color: rgb(49, 113, 233);
+    padding: 5px 16px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
