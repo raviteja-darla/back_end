@@ -1,0 +1,14 @@
+.home-wrapper {
+    
+}
+.create-new-btn button{
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
