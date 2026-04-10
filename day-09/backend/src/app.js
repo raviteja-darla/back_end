@@ -1,8 +1,11 @@
 // Importing Express to create server and perform CRUD operations on it;
 const express = require("express");
+const cors = require("cors")
 
 // Creating Express app to create server and perform CRUD operation on it;
 const app = express();
+
+app.use(cors())
 
 // Middelware to read request body;
 app.use(express.json());
