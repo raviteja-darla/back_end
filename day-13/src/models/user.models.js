@@ -4,11 +4,11 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: {
         type: String,
-        unique: [true, "With this email account has been created already"]
+        unique: [true, "Email already exist"]
     },
-    password: String,
+    password: String
 });
 
-const userModel = mongoose.model('user', userSchema);
+const userModel = mongoose.model("users", userSchema);
 
 module.exports = userModel;
