@@ -72,4 +72,42 @@ authRouter.get("/get-me", async (req, res) => {
     
 })
 
+authRouter.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    const user = await userModel.findOne({ email });
+
+    if( !user ) {
+        return res.status(404).json({
+            message: "user not found"
+        })
+    }
+
+    const hash = crypto.createHash('sha256').update(password).digest('hex');
+
+    const is_password_valid = hash == user.password;
+
+    if( !is_password_valid ) {
+        return res.status(401).json({
+            message: "Invalid password. Please try again"
+        })
+    }
+
+    const token = jwt.sign({
+        id : user._id
+    }, process.env.JWT_SECRET, {
+        expiresIn: '1d'
+    })
+
+    res.cookie("token", token);
+
+    res.status(200).json({
+        message: "login successfully",
+        user: {
+            name: user.name,
+            email: user.email
+        }
+    })
+})
+
 module.exports = authRouter;
