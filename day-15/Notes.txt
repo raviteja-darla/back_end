@@ -1,6 +1,0 @@
-{
-    "username": "madhulika",
-    "password": "madhulika",
-    "email": "madhulika@gmail.com",
-    "bio": "test-bio"
-}
