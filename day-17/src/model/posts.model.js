@@ -9,9 +9,9 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: [true, "Caption required to create a post"]
     },
-    userId: {
-        ref: "users",
+    user: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
         required: [true, "user Id is required to create a post"]
     }
 })
